@@ -6,10 +6,10 @@ public class MinCostMatching {
 
 	double minCostMatching(double[][] cost, int[] Lmate, int[] Rmate){
 		int n = cost.length;
-		
 		//construct  dual feasible solution
 		double[] u = new double[n];
 		double[] v = new double[n];
+		
 		for(int i = 0; i< n; i++){
 			u[i] = cost[i][0];
 			for (int j = 0; j< n; j++)
@@ -22,9 +22,10 @@ public class MinCostMatching {
 				v[j] = Double.min(v[j], cost[i][j] - u[i]);
 		}
 		// construct primal solution satisfying complementary  slackness.
-		Lmate = new int[n];
+		
+		
 		Arrays.fill(Lmate, -1);
-		Rmate = new int[n];
+		
 		Arrays.fill(Rmate, -1);
 		
 		int mated = 0;
@@ -44,8 +45,8 @@ public class MinCostMatching {
 		double[] dist = new double[n];
 		int[] dad = new int[n];
 		int[] seen = new int[n];
-		//repeat until primal solution is feasible
 		
+		//repeat until primal solution is feasible
 		while(mated < n){
 			// find an unmatched left node
 			int s = 0;
@@ -53,8 +54,10 @@ public class MinCostMatching {
 			//initialize dijkstra
 			Arrays.fill(dad, -1);
 			Arrays.fill(seen, 0);
+			
 			for(int k = 0; k< n; k++)
 				dist[k] = cost[s][k] - u[s] - v[k];
+			
 			int j = 0;
 			while(true){
 				// find closest
@@ -63,7 +66,6 @@ public class MinCostMatching {
 					if(seen[k] == 1) continue;
 					if(j == -1 || dist[k] < dist[j])
 						j = k;
-					
 				}
 				seen[j] = 1;
 				//termination condition
@@ -91,7 +93,6 @@ public class MinCostMatching {
 			}
 			
 			u[s] +=dist[j];
-			
 			// augment along path
 			while(dad[j] >=0 ){
 				final int d = dad[j];
@@ -109,6 +110,33 @@ public class MinCostMatching {
 		double value = 0;
 		for (int i = 0; i< n; i++)
 			value+=cost[i][Lmate[i]];
+		
 		return value;
+	}
+	
+	public static void main(String[] args){
+		MinCostMatching mcm = new MinCostMatching();
+		int[] Lmate = new int[2];
+		int[] Rmate = new int[2];
+		
+		double INF = Double.MAX_VALUE/4;
+		double[][] cost = new double[2][2];
+		for (int i = 0; i< cost.length; i++)
+			Arrays.fill(cost[i], INF);
+		
+		cost[0][0] = 2; 
+		
+		cost[0][1] = 3; 
+		
+		cost[1][0] = 5; 
+		
+		cost[1][1] = 7; 
+		
+		double value = mcm.minCostMatching(cost, Lmate, Rmate);
+		
+		System.out.println("value: " +value + "\nLmate: "+  Arrays.toString(Lmate) + "\nRmate: " + Arrays.toString(Rmate));
+		for (int i = 0; i< Lmate.length; i++)
+			System.out.println("Match: " + i + " to " + Lmate[i]);
+		
 	}
 }

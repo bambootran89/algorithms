@@ -32,9 +32,7 @@ class LinkedList<T> {
 		}	
 		new_node.next = head;
 		head.prev = new_node;
-		
 		head = new_node;
-		
 		return head;
 	}
 	
@@ -43,7 +41,6 @@ class LinkedList<T> {
 			return;
 		
 		head = head.next;
-		
 		if (head !=null)
 			head.prev = null;
 		count-=1;
@@ -61,22 +58,16 @@ class LinkedList<T> {
 			
 			count -= 1;
 			return;
-		}
-		
-			
+		}	
 		atNode.prev.next = atNode.next;
-		
 		if (atNode.next!=null)
 			atNode.next.prev = atNode;
 		
 		count-=1;
 	}
-	
-	
 	public Node<T> getFirst(){
 		return head;
 	}
-	
 	public int length(){
 		return count;
 	}
@@ -131,8 +122,6 @@ public class EulerianPath {
 		ita.data.reverse_edge = itb;
 		itb.data.reverse_edge = ita;		
 	}
-	
-     
 	
 	public static void main(String[] args)
     {

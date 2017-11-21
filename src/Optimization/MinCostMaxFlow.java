@@ -17,6 +17,7 @@ public class MinCostMaxFlow {
 	boolean[] found;
 	Long[] dist, pi, width;
 	Pair<Integer>[] dad;
+	final long INF = Long.MAX_VALUE/4;
 	
 	public MinCostMaxFlow(int N_) {
 		N = N_;
@@ -54,10 +55,10 @@ public class MinCostMaxFlow {
 	
 	long dijkstra(int s, int t){
 		Arrays.fill(found, false);
-		Arrays.fill(dist, Long.MAX_VALUE);
+		Arrays.fill(dist, INF);
 		Arrays.fill(width, (long)0);
 		dist[s] = (long)0;
-		width[s] = Long.MAX_VALUE;
+		width[s] = INF;
 		
 		while(s!=-1){
 			int best = -1;
@@ -65,7 +66,7 @@ public class MinCostMaxFlow {
 			for(int k = 0; k< N; k++){
 				if(found[k]) continue;
 				relax(s, k, cap[s][k] - flow[s][k], cost[s][k], 1);
-				relax(s,k, flow[s][k], -cost[k][s], -1);
+				relax(s, k, flow[s][k]            ,-cost[k][s], -1);
 				
 				if (best == -1 || dist[k] < dist[best]) 
 					best = k;
@@ -73,7 +74,7 @@ public class MinCostMaxFlow {
 			s = best;
 		}
 		for (int k = 0; k < N; k++)
-			pi[k] = Long.min(pi[k] + dist[k], Long.MAX_VALUE);
+			pi[k] = Long.min(pi[k] + dist[k], INF);
 		return width[t];
 	}
 	
@@ -99,5 +100,12 @@ public class MinCostMaxFlow {
 		}
 		return new Pair<Long>(totFlow, totCost);
 	}
+	
+	public static void main(String[] args){
+		//MinCostMaxFlow mcmf = new MinCostMaxFlow(6);
+		//mcmf.addEdge(from, to, cap, cost);
+		
+	}
+	
 	
 }
