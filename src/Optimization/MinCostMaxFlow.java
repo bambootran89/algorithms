@@ -133,6 +133,7 @@ public class MinCostMaxFlow {
 //		mcmf.addEdge(0, 1, 20, 0);
 //		
 //		System.out.println(mcmf.getMaxFlow(0, 4));
+//		System.out.println(mcmf.flow[0][1]);
 		
 		MinCostMaxFlow mcmf = new MinCostMaxFlow(8);
 		mcmf.addEdge(0, 1, 3, 0);

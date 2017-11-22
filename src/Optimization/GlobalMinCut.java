@@ -13,9 +13,34 @@ public class GlobalMinCut {
 			first = f;
 			second = s;
 		}
+
+		@Override
+		public String toString() {
+			// TODO Auto-generated method stub
+			return "(" + first + "," + second + ")"; 
+		}
+		
+		
 	}
 	
-	public Pair getMinCut(ArrayList<ArrayList<Integer>> weights){
+	public GlobalMinCut(int N){
+		weights = new ArrayList<>();
+		for (int i =0 ; i< N; i++){
+			ArrayList<Integer> w_edges = new ArrayList<>(Arrays.asList(new Integer[N]));
+			Collections.fill(w_edges, 0);
+			weights.add(w_edges);
+		}
+	
+	}
+	
+	void addEdge(int i, int j, int w){
+		weights.get(i).set(j, w);
+		weights.get(j).set(i, w);
+	}
+	
+	ArrayList<ArrayList<Integer>> weights;
+	
+	public Pair getMinCut(){
 		int N =  weights.size();
 		
 		ArrayList<Boolean> used = new ArrayList<>(Arrays.asList(new Boolean[N]));
@@ -61,5 +86,24 @@ public class GlobalMinCut {
 		return new Pair(best_weight,best_cut);
 	}
 	
+	public static void main(String[] args){
+		GlobalMinCut gmc = new GlobalMinCut(8);
+		
+		gmc.addEdge(0, 1, 2);
+		gmc.addEdge(0, 4, 3);
+		gmc.addEdge(4, 1, 2);
+		gmc.addEdge(4, 5, 3);
+		gmc.addEdge(1, 5, 2);
+		gmc.addEdge(1, 2, 3);
+		gmc.addEdge(5, 6, 1);
+		gmc.addEdge(2, 6, 2);
+		gmc.addEdge(2, 3, 4);
+		gmc.addEdge(6, 7, 3);
+		gmc.addEdge(6, 3, 2);
+		gmc.addEdge(3, 7, 2);
+		
+		System.out.println(gmc.getMinCut());
+		
+	}
 	
 }
