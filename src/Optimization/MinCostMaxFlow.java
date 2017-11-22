@@ -10,6 +10,11 @@ public class MinCostMaxFlow {
 			first = f;
 			second = s;
 		}
+		@Override
+		public String toString() {
+			// TODO Auto-generated method stub
+			return "(" + first + "," + second +")";
+		}
 	}
 	
 	int N;
@@ -25,14 +30,17 @@ public class MinCostMaxFlow {
 		flow = new Long[N][N];
 		cost = new Long[N][N];
 		
-		for(int i = 0; i<N; i++)
-			Arrays.fill(flow[i], 0);
+		for(int i = 0; i<N; i++){
+			Arrays.fill(flow[i], (long)0);
+			Arrays.fill(cap[i], (long)0);
+			Arrays.fill(cost[i], (long)0);
+		}
 		
 		found = new boolean[N];
 		dist = new Long[N];
 		pi = new Long[N];
 		
-		Arrays.fill(pi, 0);
+		Arrays.fill(pi, (long)0);
 		
 		width = new Long[N];
 		dad = new Pair[N];
@@ -42,6 +50,8 @@ public class MinCostMaxFlow {
 	void addEdge(int from, int to, long cap, long cost) {
 		this.cap[from][to] = cap;
 		this.cost[from][to] = cost;
+		this.cap[to][from] = cap;
+		this.cost[to][from] = cost;
 	}
 	
 	void relax(int s, int k, long cap, long cost, int dir){
@@ -66,7 +76,7 @@ public class MinCostMaxFlow {
 			for(int k = 0; k< N; k++){
 				if(found[k]) continue;
 				relax(s, k, cap[s][k] - flow[s][k], cost[s][k], 1);
-				relax(s, k, flow[s][k]            ,-cost[k][s], -1);
+				relax(s, k, flow[k][s]            ,-cost[k][s], -1);
 				
 				if (best == -1 || dist[k] < dist[best]) 
 					best = k;
@@ -75,6 +85,7 @@ public class MinCostMaxFlow {
 		}
 		for (int k = 0; k < N; k++)
 			pi[k] = Long.min(pi[k] + dist[k], INF);
+		
 		return width[t];
 	}
 	
@@ -102,9 +113,46 @@ public class MinCostMaxFlow {
 	}
 	
 	public static void main(String[] args){
-		//MinCostMaxFlow mcmf = new MinCostMaxFlow(6);
-		//mcmf.addEdge(from, to, cap, cost);
 		
+//		MinCostMaxFlow mcmf = new MinCostMaxFlow(5);
+//		mcmf.addEdge(1, 4, 10, 1 );
+//		mcmf.addEdge(4, 1, 10, 1);
+//		
+//		mcmf.addEdge(1, 3, 10, 2);
+//		mcmf.addEdge(3, 1, 10, 2);
+//		
+//		mcmf.addEdge(3, 4, 10, 5);
+//		mcmf.addEdge(4, 3, 10, 5);
+//		
+//		mcmf.addEdge(1, 2, 10, 3);
+//		mcmf.addEdge(2, 1, 10, 3);
+//		
+//		mcmf.addEdge(2, 4, 10, 4);
+//		mcmf.addEdge(4, 2, 10, 4);
+//		
+//		mcmf.addEdge(0, 1, 20, 0);
+//		
+//		System.out.println(mcmf.getMaxFlow(0, 4));
+		
+		MinCostMaxFlow mcmf = new MinCostMaxFlow(8);
+		mcmf.addEdge(0, 1, 3, 0);
+		mcmf.addEdge(0, 2, 7, 0);
+        mcmf.addEdge(1, 3, 7, 3);
+        mcmf.addEdge(2, 3, 10, 6);
+        mcmf.addEdge(2, 4, 4, 2);
+        mcmf.addEdge(3, 5, 10, 4);
+        mcmf.addEdge(3, 6, 2, 1);
+        mcmf.addEdge(4, 6, 7, 3);
+        mcmf.addEdge(5, 7, 4, 0);
+        mcmf.addEdge(6, 7, 6, 0);
+        System.out.println(mcmf.getMaxFlow(0, 7));
+        
+        System.out.println(mcmf.flow[0][1]);
+        System.out.println(mcmf.flow[0][2]);
+        
+        System.out.println(mcmf.flow[5][7]);
+        System.out.println(mcmf.flow[6][7]);
+        
 	}
 	
 	
