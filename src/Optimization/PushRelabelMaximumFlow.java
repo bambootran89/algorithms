@@ -11,10 +11,10 @@ public class PushRelabelMaximumFlow {
 		long cap, flow;
 		int index;
 		public Edge(int from_, int t_, long c_, long flow_,int idx_){
-			this.from = from_;
-			this.to = t_;
-			this.cap = c_;
-			this.flow = flow_;
+			this.from  = from_;
+			this.to    = t_;
+			this.cap   = c_;
+			this.flow  = flow_;
 			this.index = idx_;
 		}
 	}
@@ -77,16 +77,21 @@ public class PushRelabelMaximumFlow {
 		excess[e.from] -= tmp;
 		enqueue(e.to);
 	}
+	/*
+	 * Heuristics are crucial to improving the empirical performance of the algorithm.
+	 * Two commonly used heuristics are the gap heuristic and the global relabeling heuristic.
+	 * If there is a label 0 < l' < | V | for which there is no node u such that l(u) = l',
+	 * then any node u with l' < l(u) < | V | has been disconnected from t and can be relabeled to (| V | + 1) immediately.
+	 * The global relabeling heuristic periodically performs backward breadth-first search from t in Gf  to compute the exact labels of the nodes.
+	 */
+	
 	
 	void gap(int k){
 		for(int v = 0; v< N ; v++){
-			
 			if(dist[v] < k) continue;
-			
 			count[dist[v]]--;
 			dist[v] = N+1 > dist[v]? N+1: dist[v];
 			count[dist[v]]++;
-			
 			enqueue(v);
 		}
 	}
