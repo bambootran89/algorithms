@@ -47,7 +47,6 @@ public class PushRelabelMaximumFlow {
 		Arrays.fill(count, 0); 
 		Arrays.fill(excess, (long)0);
 		
-		
 		Q =      new LinkedList<>();
 	}
 	

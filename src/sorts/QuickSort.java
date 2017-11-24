@@ -1,7 +1,6 @@
-package DataStructures;
+package sorts;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class QuickSort {
 	ArrayList<Integer> arr;
