@@ -23,7 +23,7 @@ public class Knapsack {
 		 */
 		
 		/* 
-		 * solving
+		 * solving, this solution is pseudo-polynomia O(nS)
 		 * to implement effectively, dp[n][j] = 0
 		 */
 		double[][] dp = new double[n+1][S+1];
