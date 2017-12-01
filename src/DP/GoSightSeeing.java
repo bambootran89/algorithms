@@ -1,5 +1,6 @@
 package DP;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class GoSightSeeing {
@@ -84,13 +85,37 @@ public class GoSightSeeing {
 				max_v = r;
 			}
 		}
+		
+		/* back track
+		 * just basing on dp[][]. 
+		 * at i: to locate whether or not go sightseeing at i-1.
+		 * just by checking dp[i][j] equals dp[i-1][j] or dp[i-1][j-1] 
+		 */
+		int[] visit_city = new int[n]; 
+		int j = max_v;
+		for(int i = n-1; i>0; i--){
+			if (dp[i][j] == nextTime(dp[i-1][j],S[i],F[i],D[i])){
+				visit_city[i] = 0;
+			}else{
+				visit_city[i] = 1;
+				j--;
+			}
+		}
+		
+		System.out.print("which city will be visited:");
+		for (int i = 1; i<visit_city.length; i++){
+			if (visit_city[i] == 1)
+				System.out.print(" " + i);
+		}
+		
+		System.out.println("");
 		return max_v;
 	}
 	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+        
 	}
 
 }

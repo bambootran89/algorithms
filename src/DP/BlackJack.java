@@ -45,6 +45,7 @@ public class BlackJack {
 	/* this solutuon using memory cache and recursive approach to solve.
 	 * I am thinking of how to back trace.
 	 */
+	
 	int BJ(int i){
 		
 		if(BJ_Cache[i] != -1){
@@ -55,11 +56,11 @@ public class BlackJack {
 			return 0;
 		}
 		
-		int player = 0;
-		int dealer = 0;
+		
 		int vmax = 0;
 		
 		for (int p = 2; p< n-i-2; p++){
+			int player = 0;
 			for(int k = i; k<i+p+2; k++,k++){
 				player+=C[k];
 			}
@@ -69,7 +70,9 @@ public class BlackJack {
 					vmax = v;
 			}
 			int d = 2;
+			int dealer = 0;
 			for (; d< n-i-p; d++ ){
+				dealer = 0;
 				for(int k = i+1; k< i+p+d; k++,k++ ){
 					dealer+=C[k];
 				}
