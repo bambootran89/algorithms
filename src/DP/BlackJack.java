@@ -33,17 +33,13 @@ public class BlackJack {
 	 * 2. guess how many times plays "hits" draws another card.
 	 *    number of choices <= n
 	 * 3. recurrence BJ(i) = max(
-	 *                     O(n)-> outcome(1,0,-1) + BJ(j + cards used),
+	 *                     O(n)-> outcome(1,0,-1) + BJ(i + cards used),
 	 *                           )
 	 *    time/subproblem -> O(n^2)
 	 * 4. order: for i in reversed(range(n))
 	 * total time O(n^3)
 	 * 5. solution BJ[0]
 	 * 
-	 */
-	
-	/* this solutuon using memory cache and recursive approach to solve.
-	 * I am thinking of how to back trace.
 	 */
 	
 	int BJ(int i){
@@ -95,6 +91,8 @@ public class BlackJack {
 		}
 		
 		BJ_Cache[i] = vmax;
+		
+		
 		return vmax;
 		
 	}
