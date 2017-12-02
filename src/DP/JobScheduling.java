@@ -50,8 +50,6 @@ public class JobScheduling {
 		for(int i = n-1; i>=0; i--){	
 			dp[i] = jobs[i].profit;
 			starts[i] = jobs[i].start;
-			
-			
 			for (int j = i+1; j<n;j++){		
 				double profit = dp[j];
 				double start = starts[j];
