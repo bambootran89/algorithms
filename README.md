@@ -1,6 +1,7 @@
-The ideas of algorithms from many sources but most from MIT course 6006 and http://wwwgeeksforgeeksorg/
+The ideas of algorithms from many sources but most from MIT course 6006 and http://wwwgeeksforgeeksorg/.
+
 I implemented them in Java version.
-practice more, practice more, practice more is the best way to be professional!!!
+let's practice more and more!!!
 
 Algorithms:
 + Tree
