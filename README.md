@@ -5,6 +5,7 @@ let's practice more and more!!!
 
 Algorithms:
 + Tree
+
     +AVL
 	
     +BST
@@ -22,14 +23,17 @@ Algorithms:
     +VerticalOrderBtree
 	
 + LinkedList
+
     +LinkedList
 	
 + Sorts
+
     +MergeSort
 	
     +QuickSort
 	
 + Hash
+
     +Cuckoo
 	
     +itinerary
@@ -45,6 +49,7 @@ Algorithms:
     +SubarrayDistinctElements
 	
 + Graph
+
     +BellmanFord
 	
     +EulerianPath
@@ -56,6 +61,7 @@ Algorithms:
     +StrongConnectedConponents
 	
 + Optimization
+
     +DinicBlockMaxFlow
 	
     +GlobalMinCut
@@ -67,6 +73,7 @@ Algorithms:
     +PushRelabelMaximumFlow
 	
 + String
+
     +GeneralizedSuffixTree
 	
     +kasai
@@ -88,6 +95,7 @@ Algorithms:
     +Trie
 	
 + DP:
+
     +BlackJack
 	
     +GoSightSeeing
