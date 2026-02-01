@@ -10,9 +10,14 @@ jobs:
   test:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         java-version: ['11', '17', '21']
+
+    defaults:
+      run:
+        shell: bash
 
     name: Test on ${{ matrix.os }} with Java ${{ matrix.java-version }}
 

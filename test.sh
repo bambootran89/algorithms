@@ -33,12 +33,16 @@ fi
 echo -e "${YELLOW}Executing Master Test Runner...${NC}"
 echo ""
 
-if java -cp "./$BUILD_DIR" tests.TestRunner > /tmp/test_output.txt 2>&1; then
-    cat /tmp/test_output.txt
+TEST_OUT="test_output.txt"
+if java -cp "./$BUILD_DIR" tests.TestRunner > "$TEST_OUT" 2>&1; then
+    cat "$TEST_OUT"
     EXIT_CODE=0
 else
-    cat /tmp/test_output.txt
+    cat "$TEST_OUT"
     EXIT_CODE=1
 fi
+
+# Cleanup
+rm -f "$TEST_OUT"
 
 exit $EXIT_CODE
