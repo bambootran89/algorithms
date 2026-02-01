@@ -1,4 +1,10 @@
 package trees;
+/**
+ * Vertical order traversal of binary tree.
+ *
+ * @author Algorithms Collection
+ */
+
 
 
 import java.util.Set;
@@ -6,7 +12,7 @@ import java.util.TreeMap;
 import java.util.Vector;
 
 public class VerticalOrderBtree extends BST{
-	public void printVerticalOrder()
+  public void printVerticalOrder()
     {
         
         TreeMap<Integer,Vector<Integer>> m = new TreeMap<>();
@@ -24,21 +30,21 @@ public class VerticalOrderBtree extends BST{
 //        }
     }
 
-	private void getVerticalOrder(Node root, int hd, TreeMap<Integer, Vector<Integer>> m) {
-		if (root == null)
-			return;
-		Vector<Integer> vec = m.get(hd);
-		if (vec == null){
-			vec = new Vector<Integer>();
-			vec.add(root.data);
-		}else{
-			vec.add(root.data);
-		}
-		
-		m.put(hd, vec);
-		
-		getVerticalOrder(root.left, hd-1, m);
-		getVerticalOrder(root.right, hd+1, m);
-	}
+  private void getVerticalOrder(Node root, int hd, TreeMap<Integer, Vector<Integer>> m) {
+    if (root == null)
+      return;
+    Vector<Integer> vec = m.get(hd);
+    if (vec == null){
+      vec = new Vector<Integer>();
+      vec.add(root.data);
+    }else{
+      vec.add(root.data);
+    }
+    
+    m.put(hd, vec);
+    
+    getVerticalOrder(root.left, hd-1, m);
+    getVerticalOrder(root.right, hd+1, m);
+  }
 
 }

@@ -1,22 +1,30 @@
-package List;
+package tests;
+/**
+ * Test suite for lists.
+ *
+ * @author Algorithms Collection
+ */
+
+import List.*;
+
 
 import java.util.ArrayList;
 import java.util.Random;
 
 public class TestList {
-	public static void main(String[] args)
+  public static void main(String[] args)
     {
         LinkedList llist = new LinkedList();
         java.util.List<Integer> list = new ArrayList<Integer>();
-		Random rand = new Random();
-		
-		for (int i =0; i< 20; i++){
-			Integer num = rand.nextInt(1000);
-			llist.append(num);
-			list.add(num);
-		}
+    Random rand = new Random();
+    
+    for (int i =0; i< 20; i++){
+      Integer num = rand.nextInt(1000);
+      llist.append(num);
+      list.add(num);
+    }
  
-		System.out.println(llist);
+    System.out.println(llist);
  
         llist.printList();
         

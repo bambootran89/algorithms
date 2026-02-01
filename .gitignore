@@ -1,0 +1,70 @@
+# Build artifacts
+build/
+dist/
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+
+# IDE and Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# Gradle
+.gradle/
+gradle-app.setting
+
+# Maven
+.m2/
+pom.xml.tag
+pom.xml.releaseBackup
+release.properties
+
+# Ant
+build.properties
+build.log
+
+# JetBrains IDE
+*.iml
+*.iws
+*.ipr
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# NetBeans
+nbproject/
+nbbuild/
+nbdist/
+.nb-gradle/
+
+# VS Code
+.vscode/
+
+# OS files
+Thumbs.db
+.DS_Store
+ehthumbs.db
+
+# Logs
+*.log
+logs/
+
+# Local environment
+.env
+.env.local
+
+# Temporary files
+*.tmp
+*.bak
