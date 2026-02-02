@@ -25,11 +25,11 @@ $(BUILD_DIR):
 
 test: compile
 	@echo "Running tests..."
-	@./test.sh
+	@bash ./test.sh
 
 style:
 	@echo "Checking code style..."
-	@./style-check.sh
+	@bash ./style-check.sh
 
 clean:
 	@echo "Cleaning..."
