@@ -10,8 +10,10 @@ import java.util.Scanner;
 /**
  * Bellman-Ford Shortest Path Algorithm.
  *
- * <p>Finds the shortest paths from a single source vertex to all other vertices in a weighted
- * directed graph. Unlike Dijkstra's algorithm, it can handle negative edge weights and detect
+ * <p>Finds the shortest paths from a single source vertex to all other 
+ * vertices in a weighted
+ * directed graph. Unlike Dijkstra's algorithm, 
+ * it can handle negative edge weights and detect
  * negative cycles.
  *
  * <p>Time Complexity: O(V * E) where V is vertices and E is edges

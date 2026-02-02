@@ -34,7 +34,8 @@ public class GeneralizedSuffixTree extends SuffixTree {
         }
         
         leaf = 0;
-        setSuffixIndexByDFS(n.children.get(key), labelHeight+n.children.get(key).edgeLength());
+        setSuffixIndexByDFS(n.children.get(key), 
+           labelHeight+n.children.get(key).edgeLength());
         
       }
       

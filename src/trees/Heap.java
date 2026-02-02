@@ -49,7 +49,8 @@ public abstract class Heap {
   public void deleteKey(int index){
     if (index < 0 || index >=heap.size())
       return;
-    decreaseKey(index, Integer.MAX_VALUE==getType()? Integer.MAX_VALUE:Integer.MIN_VALUE);
+    decreaseKey(index, Integer.MAX_VALUE==getType()? 
+        Integer.MAX_VALUE:Integer.MIN_VALUE);
     pop();
   }
   

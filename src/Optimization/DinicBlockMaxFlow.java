@@ -38,7 +38,7 @@ public class DinicBlockMaxFlow {
     
   }
   
-  void addEdge(int u, int v, long cap){
+  public void addEdge(int u, int v, long cap){
     if(u!=v){
       E.add(new Edge(u, v, cap));
       g.get(u).add(E.size() - 1);
@@ -95,7 +95,7 @@ public class DinicBlockMaxFlow {
     return 0;
   }
   
-  long maxFlow(int S, int T){
+  public long maxFlow(int S, int T){
     long total = 0;
     while(BFS(S,T)){      
       while(true){

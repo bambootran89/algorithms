@@ -3,7 +3,8 @@ package trees;
 /**
  * Binary Search Tree (BST) implementation.
  *
- * <p>A binary tree where each node's left subtree contains only nodes with values less than the
+ * <p>A binary tree where each node's left subtree contains only nodes 
+ * with values less than the
  * node, and the right subtree contains only nodes with values greater than the node.
  *
  * <p>Time Complexity:

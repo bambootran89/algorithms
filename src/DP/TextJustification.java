@@ -105,7 +105,8 @@ public class TextJustification {
   public static void main(String[] args) {
     TextJustification TJ = new TextJustification(15);
     /*
-     *  If you are connected but behind a firewall check that Firefox has permission to access the Web
+     *  If you are connected but behind a firewall check that Firefox 
+     *  has permission to access the Web
      */
     int[] w = new int[]{2, 3, 3, 9, 3, 6, 1, 8, 5, 4, 7, 3, 10, 2, 6, 3, 3};
     int n = w.length;

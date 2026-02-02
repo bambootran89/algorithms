@@ -22,7 +22,8 @@ public class SmallestRangeKList {
     
   }
 
-  private static void moreBetterApproachfindSmallestRange(ArrayList<ArrayList<Integer>> arr) {
+  private static void moreBetterApproachfindSmallestRange(
+      ArrayList<ArrayList<Integer>> arr) {
     class Node implements Comparable<Node>{
       public int element;
       public int i;
@@ -109,13 +110,17 @@ public class SmallestRangeKList {
                 break;
               }
               
-            // find minimum value among all the list elements pointing by the ptr[] array
-              if(ptr.get(i) < arr.get(i).size()  && arr.get(i).get(ptr.get(i)) < minval){
+            // find minimum value among all the list elements pointing by 
+            // the ptr[] array
+              if(ptr.get(i) < arr.get(i).size()  
+                  && arr.get(i).get(ptr.get(i)) < minval){
                 minind = i;
                 minval = arr.get(i).get(ptr.get(i));
               }
-            // find maximum value among all the list elements pointing by the ptr[] array
-              if(ptr.get(i) < arr.get(i).size()  && arr.get(i).get(ptr.get(i)) > maxval){
+            // find maximum value among all the list elements pointing by 
+            // the ptr[] array
+              if(ptr.get(i) < arr.get(i).size()  
+                  && arr.get(i).get(ptr.get(i)) > maxval){
                 maxval = arr.get(i).get(ptr.get(i));
               }
             }

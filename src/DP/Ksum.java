@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Ksum {
   
-  private class Pair{
+  public class Pair{
     int first;
     ArrayList<Integer> second;
     public Pair(int f, ArrayList<Integer> s){
@@ -23,19 +23,25 @@ public class Ksum {
     }
   }
   
-  Pair ksum(int n,int K,int S,int s[]){
+  public Pair ksum(int n,int K,int S,int s[]){
     
-    /* a further restriction of the subset sum problem is that the backpack has K pockets,
+    /* a further restriction of the subset sum problem is that 
+     * the backpack has K pockets,
      *  and you can fit exactly one gold bar in a pocket.
      *  dp[i][j][k] is true if there is a k-element subset of the gold bars i ... n-1 
-     *  that weights exactly j pounds. dp[i][j][k] is computed considering all possible values of di 
+     *  that weights exactly j pounds. dp[i][j][k] is computed considering 
+     *  all possible values of di 
      *  (the decision at step i, which is whether or not to include bar i).
      *  
-     *  1. add bar i to the knapsack. In this case, we need to choose a k-1 bar subset of the bars 
-     *  i+1 ... n-1 that weights exactly j - si pounds. dp[i+1][j-si][k-1] indecates whether such a subset exists.
+     *  1. add bar i to the knapsack. In this case, we need to choose 
+     *  a k-1 bar subset of the bars 
+     *  i+1 ... n-1 that weights exactly j - si pounds. 
+     *  dp[i+1][j-si][k-1] indecates whether such a subset exists.
      *  
-     *  2. don't add item i to the knapsack. in this case, the solution rests on a k-bar subset of the bars i+1 ... n-1 
-     *  that weights exactly j pounds. the answer of whether such a subset exists is in dp[i+1][j][k].
+     *  2. don't add item i to the knapsack. in this case, 
+     *  the solution rests on a k-bar subset of the bars i+1 ... n-1 
+     *  that weights exactly j pounds. the answer of whether 
+     *  such a subset exists is in dp[i+1][j][k].
      *  
      *  dp[i][j][k] =  max(dp[i+1][j][k], dp[i+1][j-si][k-1] if j>=si and k>0)
      * 

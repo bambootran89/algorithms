@@ -178,7 +178,8 @@ public class LongestPalindromicSubstring {
 
       leaf = 0;
 
-      setSuffixIndexByDFS(n.children.get(key), labelHeight + n.children.get(key).edgeLength());
+      setSuffixIndexByDFS(n.children.get(key), 
+         labelHeight + n.children.get(key).edgeLength());
       if (n != root) {
         // Add chldren's suffix indices in parent
         for (int index : n.children.get(key).forwardIndices) {
@@ -241,8 +242,10 @@ public class LongestPalindromicSubstring {
     if (n.suffixIndex < 0) { // if it is internal node
       for (Character key : n.children.keySet()) {
 
-        doTraversal(n.children.get(key), labelHeight + n.children.get(key).edgeLength());
-        if (maxHeight < labelHeight && n.forwardIndices.size() > 0 && n.reverseIndices.size() > 0) {
+        doTraversal(n.children.get(key), 
+           labelHeight + n.children.get(key).edgeLength());
+        if (maxHeight < labelHeight && n.forwardIndices.size() > 0 
+           && n.reverseIndices.size() > 0) {
           for (Integer forwardIndex : n.forwardIndices) {
             reverseIndex = (size1 - 2) - (forwardIndex + labelHeight - 1);
             if (n.reverseIndices.contains(reverseIndex)) {

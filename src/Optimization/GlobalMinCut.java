@@ -70,7 +70,8 @@ public class GlobalMinCut {
         
         if (i == phase - 1){
           for(int j =0 ; j < N; j++)
-            weights.get(prev).set(j, weights.get(prev).get(j) + weights.get(last).get(j));
+            weights.get(prev).set(j, weights.get(prev).get(j) 
+                + weights.get(last).get(j));
           for(int j = 0; j< N; j++)
             weights.get(j).set(prev, weights.get(prev).get(j));
           

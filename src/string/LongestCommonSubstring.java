@@ -40,7 +40,8 @@ public class LongestCommonSubstring extends GeneralizedSuffixTree {
     int res;
     if (n.suffixIndex == -1) { // if it is internal node
       for (Character key : n.children.keySet()) {
-        res = doTraversal(n.children.get(key), labelHeight + n.children.get(key).edgeLength());
+        res = doTraversal(n.children.get(key), 
+           labelHeight + n.children.get(key).edgeLength());
 
         if (n.suffixIndex == -1)
           n.suffixIndex = res;
@@ -63,7 +64,8 @@ public class LongestCommonSubstring extends GeneralizedSuffixTree {
   }
 
   public static void main(String[] args) {
-    LongestCommonSubstring suffixtree = new LongestCommonSubstring("CuongTran", "Cuong");
+    LongestCommonSubstring suffixtree = 
+       new LongestCommonSubstring("CuongTran", "Cuong");
     suffixtree.buildSuffixTree();
     suffixtree.getLongest2Substrings();
   }

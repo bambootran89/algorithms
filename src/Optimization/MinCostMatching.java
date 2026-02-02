@@ -140,7 +140,8 @@ public class MinCostMatching {
     
     double value = mcm.minCostMatching(cost, Lmate, Rmate);
     
-    System.out.println("value: " +value + "\nLmate: "+  Arrays.toString(Lmate) + "\nRmate: " + Arrays.toString(Rmate));
+    System.out.println("value: " +value + "\nLmate: "+  Arrays.toString(Lmate) 
+        + "\nRmate: " + Arrays.toString(Rmate));
     for (int i = 0; i< Lmate.length; i++)
       System.out.println("Match: " + i + " to " + Lmate[i]);
     

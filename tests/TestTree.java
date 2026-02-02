@@ -44,6 +44,7 @@ public class TestTree {
     System.out.println("AVL:heigh is " + avl.findheigh());
 
     testSegmentTree();
+    testVerticalOrderBtree();
 
   }
 
@@ -61,5 +62,20 @@ public class TestTree {
     } else {
       System.out.println(" X FAILED (Expected 15, got " + sum + ")");
     }
+  }
+
+  static void testVerticalOrderBtree() {
+    System.out.print("Testing Vertical Order B-Tree...");
+    VerticalOrderBtree vbt = new VerticalOrderBtree();
+    // Inherits BST insert
+    vbt.insert(20);
+    vbt.insert(10);
+    vbt.insert(30);
+    vbt.insert(5);
+    vbt.insert(15);
+    // Vertical order printing
+    vbt.printVerticalOrder();
+    // Primarily smoke test
+    System.out.println(" PASSED");
   }
 }

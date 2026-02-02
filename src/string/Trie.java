@@ -3,8 +3,10 @@ package string;
 /**
  * Trie (Prefix Tree) Data Structure.
  *
- * <p>An efficient tree-based data structure for storing and searching strings. Each node represents
- * a character, and paths from root to leaf represent complete words. Enables O(m) time complexity
+ * <p>An efficient tree-based data structure for storing and searching strings. 
+ * Each node represents
+ * a character, and paths from root to leaf represent complete words. 
+ * Enables O(m) time complexity
  * for insertion and search operations where m is the string length.
  *
  * <p>Time Complexity:
@@ -12,7 +14,8 @@ package string;
  * - Search: O(m)
  * - Delete: O(m)
  *
- * <p>Space Complexity: O(ALPHABET_SIZE * N) where N is total characters across all words
+ * <p>Space Complexity: O(ALPHABET_SIZE * N) where N is total characters 
+ * across all words
  *
  * @author Algorithms Collection
  */

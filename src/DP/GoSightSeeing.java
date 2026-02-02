@@ -61,8 +61,10 @@ public class GoSightSeeing {
      *  if s>t, nextTime = s+d
      *  if s<t, nextTime = t + ((s - t)%f+f)%f + d
      *  
-     *  1. if don't go sightseeing at i, dp[i][j] = nextTime(dp[i-1][j], S[i], F[i], D[i])
-     *  2. if go sight seeing at i, dp[i][j] = nextTime(dp[i-1][j-1]  +Ts, S[i], F[i], D[i])
+     *  1. if don't go sightseeing at i, 
+     *     dp[i][j] = nextTime(dp[i-1][j], S[i], F[i], D[i])
+     *  2. if go sight seeing at i, 
+     *     dp[i][j] = nextTime(dp[i-1][j-1]  +Ts, S[i], F[i], D[i])
      *  
      *  dp[0][0] = 0
      *  
@@ -82,7 +84,8 @@ public class GoSightSeeing {
     for (int i  = 1; i<n; i++)
       for (int j = 0; j<=i; j++){
         dp[i][j] = nextTime(dp[i-1][j],S[i],F[i],D[i]);
-        if(j!=0) dp[i][j] = Integer.min(dp[i][j], nextTime(dp[i-1][j-1] +Ts ,S[i],F[i],D[i]) );
+        if(j!=0) dp[i][j] = Integer.min(dp[i][j], 
+            nextTime(dp[i-1][j-1] +Ts ,S[i],F[i],D[i]) );
       }
         
     int max_v = -1;

@@ -30,7 +30,8 @@ public class VerticalOrderBtree extends BST{
 //        }
     }
 
-  private void getVerticalOrder(Node root, int hd, TreeMap<Integer, Vector<Integer>> m) {
+  private void getVerticalOrder(Node root, int hd, 
+      TreeMap<Integer, Vector<Integer>> m) {
     if (root == null)
       return;
     Vector<Integer> vec = m.get(hd);

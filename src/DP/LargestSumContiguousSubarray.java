@@ -9,7 +9,7 @@ package DP;
 import java.util.Stack;
 
 public class LargestSumContiguousSubarray {
-  int maxSubArraySum(int a[]){
+  public int maxSubArraySum(int a[]){
     /* this code can be written shorter and more effectively
      * but i'd like to separate two tasks in DP:
      * 1. solve problem
@@ -32,8 +32,10 @@ public class LargestSumContiguousSubarray {
     }
     
     /* trace back
-     * zero/negative value + sum <= sum so it will the start point of the largest contiguous subarray.
-     * so when value cur_max[i] changes to zero or negative, it will break the largest Contiguous Subarray
+     * zero/negative value + sum <= sum so it will the start point of 
+     * the largest contiguous subarray.
+     * so when value cur_max[i] changes to zero or negative, 
+     * it will break the largest Contiguous Subarray
      */
     
     Stack<Integer> stack = new Stack<>();

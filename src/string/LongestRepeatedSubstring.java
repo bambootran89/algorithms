@@ -20,7 +20,8 @@ public class LongestRepeatedSubstring extends SuffixTree{
       maxHeight = 0;
       substringStartIndex = 0;
       doTraversal(root, 0);
-      System.out.println("Longest Repeated Substring in " + text +  " is: " + text.substring(substringStartIndex,substringStartIndex+ maxHeight));
+      System.out.println("Longest Repeated Substring in " + text +  " is: " 
+         + text.substring(substringStartIndex,substringStartIndex+ maxHeight));
     
     }
   private void doTraversal(Node n, int labelHeight) {
@@ -37,7 +38,8 @@ public class LongestRepeatedSubstring extends SuffixTree{
     }
   }
   public static void main(String[] args) {
-    LongestRepeatedSubstring suffixtree = new LongestRepeatedSubstring("GEEKSFORGEEKS$");
+    LongestRepeatedSubstring suffixtree = 
+       new LongestRepeatedSubstring("GEEKSFORGEEKS$");
     suffixtree.buildSuffixTree();
     suffixtree.getLongestRepeatedSubstring();
   }

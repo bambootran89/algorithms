@@ -34,7 +34,8 @@ public class PalindromeSubstringQueries {
   }
   
   
-  private static void queryResults(String str, Query[] q, int m, int length, Long[] prefix, Long[] suffix,
+  private static void queryResults(String str, Query[] q, int m, int length, 
+      Long[] prefix, Long[] suffix,
       Long[] power) {
     ModInverse modInv = new ModInverse();
     for (int i=0; i<=m-1; i++)
@@ -43,22 +44,27 @@ public class PalindromeSubstringQueries {
           int R = q[i].R;
           
           // Hash Value of Substring [L,R]
-          long hash_LR = ((prefix[R+1]- prefix[L]+mod)%mod *modInv.modInverse(power[L],mod )%mod)%mod;
+          long hash_LR = ((prefix[R+1]- prefix[L]+mod)%mod 
+              *modInv.modInverse(power[L],mod )%mod)%mod;
           // Reverse Hash Value of Substring [L,R]
-          long reverse_hash_LR = ((suffix[length-L]-suffix[length-R-1]+mod)%mod *modInv.modInverse(power[length-R-1],mod)%mod)%mod;
+          long reverse_hash_LR = ((suffix[length-L]-suffix[length-R-1]+mod)%mod 
+              *modInv.modInverse(power[length-R-1],mod)%mod)%mod;
           
           // If both are equal then the substring is a palindrome
           if (hash_LR==(reverse_hash_LR) )
           {
               
             if (isPalindrome(str, L, R) == true)
-                  System.out.println("The Substring [ " + L + "," + R + " ] is a " + "palindrome\n");
+                  System.out.println("The Substring [ " + L + "," + R + " ] is a " 
+                      + "palindrome\n");
               else
-                System.out.println("The Substring [ " + L + "," + R + " ] is not a " + "palindrome\n");
+                System.out.println("The Substring [ " + L + "," + R + " ] is not a " 
+                    + "palindrome\n");
           }
    
           else
-            System.out.println("The Substring [ " + L + "," + R + " ] is not a " + "palindrome\n");
+            System.out.println("The Substring [ " + L + "," + R + " ] is not a " 
+                + "palindrome\n");
       }
   }
 
@@ -71,20 +77,24 @@ public class PalindromeSubstringQueries {
   }
 
 
-  private static void computeSuffixHash(String str, int length, Long[] suffix, Long[] power) {
+  private static void computeSuffixHash(String str, int length, 
+      Long[] suffix, Long[] power) {
     suffix[0] = (long)0;
     suffix[1] = (long)(str.charAt(length-1));
     for (int j=2; j<length+1; j++){
-      suffix[j] = (suffix[j-1]%mod + ((long)(str.charAt(length-j))%mod * power[j-1]%mod)%mod )%mod;
+      suffix[j] = (suffix[j-1]%mod + ((long)(str.charAt(length-j))%mod 
+          * power[j-1]%mod)%mod )%mod;
     }
     
   }
 
-  private static void computePrefixHash(String str, int length, Long[] prefix, Long[] power) {
+  private static void computePrefixHash(String str, int length, 
+      Long[] prefix, Long[] power) {
     prefix[0]= (long)0;
     prefix[1]=(long)(str.charAt(0));
     for(int i = 2; i<str.length()+1; i++){
-      prefix[i] = (prefix[i-1]%mod + ((long)(str.charAt(i-1))%mod * power[i-1]%mod)%mod)%mod;
+      prefix[i] = (prefix[i-1]%mod + ((long)(str.charAt(i-1))%mod 
+          * power[i-1]%mod)%mod)%mod;
     }    
   }
 

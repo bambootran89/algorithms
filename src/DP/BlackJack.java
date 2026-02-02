@@ -48,7 +48,7 @@ public class BlackJack {
    * 
    */
   
-  int BJ(int i){
+  public int BJ(int i){
     
     if(BJ_Cache[i] != -1){
       return BJ_Cache[i];
